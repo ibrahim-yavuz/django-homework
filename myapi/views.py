@@ -40,6 +40,3 @@ class WorkCenterOperationViewSet(viewsets.ModelViewSet):
     queryset = WorkCenterOperation.objects.all().order_by('wc_opr_id')
     serializer_class = WorkCenterOperationSerializer
 
-class CurrentUserViewSet(viewsets.ModelViewSet):
-    queryset = CurrentUser.objects.all().order_by('current_user_id')
-    serializer_class = CurrentUserSerializer

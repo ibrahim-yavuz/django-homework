@@ -77,11 +77,3 @@ class OrderItems(models.Model):
 
     def __str__(self):
         return str(self.order_item_id)
-
-class CurrentUser(models.Model):
-    current_user_id = models.IntegerField()
-    user_type = models.CharField(max_length=30)
-    is_logged_in = models.BooleanField()
-
-    def __str__(self):
-        return str(self.current_user_id)

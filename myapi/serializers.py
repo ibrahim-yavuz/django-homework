@@ -46,8 +46,3 @@ class OrderItemsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = OrderItems
         fields = ('order_item_id', 'order_id' , 'product_id', 'amount')
-
-class CurrentUserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = CurrentUser
-        fields = ('current_user_id', 'user_type' , 'is_logged_in')
