@@ -22,6 +22,11 @@ class SubProductTreeSerializer(serializers.HyperlinkedModelSerializer):
         model = SubProductTree
         fields = ('sub_product_id', 'product_id', 'amount')
 
+    def update(self, instance, validated_data):
+        instance.product_id = validated_data.get('product_id', instance.product_id)
+        instance.amount = validated_data.get('amount', instance.amount)
+        return instance
+
 class ProductsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Products
@@ -46,3 +51,4 @@ class OrderItemsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = OrderItems
         fields = ('order_item_id', 'order_id' , 'product_id', 'amount')
+
