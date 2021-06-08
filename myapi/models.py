@@ -1,4 +1,5 @@
 from django.db import models
+import jsonfield
 
 class Customers(models.Model):
     customer_id = models.AutoField(primary_key=True)
@@ -77,3 +78,11 @@ class OrderItems(models.Model):
 
     def __str__(self):
         return str(self.order_item_id)
+
+class NecessaryProducts(models.Model):
+    nc_prd_id = models.AutoField(primary_key=True)
+    product_name = models.CharField(max_length=40)
+    nc_products = jsonfield.JSONField(max_length=40)
+
+    def __str__(self):
+        return str(self.product_name)

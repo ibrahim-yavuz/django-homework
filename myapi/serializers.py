@@ -46,3 +46,7 @@ class OrderItemsSerializer(serializers.HyperlinkedModelSerializer):
         model = OrderItems
         fields = ('order_item_id', 'order_id' , 'product_id', 'amount')
 
+class NecessaryProductsSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = NecessaryProducts
+        fields = ('nc_prd_id', 'product_name' , 'nc_products')

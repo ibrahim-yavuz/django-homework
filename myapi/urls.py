@@ -1,5 +1,7 @@
 # myapi/urls.py
+from myapi.models import SubProductTree
 from django.urls import include, path
+from django.urls.conf import re_path
 from rest_framework import routers
 from . import views
 
@@ -13,10 +15,11 @@ router.register(r'subproducttree', views.SubProductTreeViewSet)
 router.register(r'operations', views.OperationsViewSet)
 router.register(r'workcenters', views.WorkCentersViewSet)
 router.register(r'workcenteroperation', views.WorkCenterOperationViewSet)
+router.register(r'necessaryproducts', views.NecessaryProductsViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
