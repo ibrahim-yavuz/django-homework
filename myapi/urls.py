@@ -15,7 +15,6 @@ router.register(r'subproducttree', views.SubProductTreeViewSet)
 router.register(r'operations', views.OperationsViewSet)
 router.register(r'workcenters', views.WorkCentersViewSet)
 router.register(r'workcenteroperation', views.WorkCenterOperationViewSet)
-router.register(r'necessaryproducts', views.NecessaryProductsViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

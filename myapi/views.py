@@ -220,27 +220,3 @@ class WorkCenterOperationViewSet(viewsets.ModelViewSet):
         except Http404:
             pass
         return Response(status=status.HTTP_204_NO_CONTENT)
-
-
-class NecessaryProductsViewSet(viewsets.ModelViewSet):
-    queryset = NecessaryProducts.objects.all().order_by('nc_prd_id')
-    serializer_class = NecessaryProductsSerializer
-
-    def put(self, request, *args, kwargs):
-        necessaryProducts = NecessaryProducts.objects.get()
-        data = request.data
-        necessaryProducts.nc_prd_id = data["nc_prd_id"]
-        necessaryProducts.product_name = data["product_name"]
-        necessaryProducts.nc_products = data["nc_products"]
-        necessaryProducts.save()
-
-        serializer = NecessaryProductsSerializer(necessaryProducts)
-        return Response(serializer.data)
-
-    def delete(self, request, *args, kwargs):
-        try:
-            obj = NecessaryProducts.objects.get()
-            self.perform_destroy(obj)
-        except Http404:
-            pass
-        return Response(status=status.HTTP_204_NO_CONTENT)
