@@ -147,9 +147,7 @@ class SubProductTreeViewSet(viewsets.ModelViewSet):
             pass
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-    def get_queryset(self):
-        p_id = self.kwargs.get("product_id")
-        obj = SubProductTree.objects.filter(product_id = p_id)
+    
 
 
 class OperationsViewSet(viewsets.ModelViewSet):
